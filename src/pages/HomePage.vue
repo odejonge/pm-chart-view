@@ -19,7 +19,7 @@ export default {
       deep: true,
       handler() {
         this.loadedContent = this.chartLayout.layout;
-        console.log("layout: ", this.chartLayout.layout)
+        //console.log("layout: ", this.chartLayout.layout)
         this.chartName = this.chartLayout.chartName;
         this.chartId = this.chartLayout.chartId;
         this.executeScripts(this.loadedContent);
@@ -32,9 +32,16 @@ export default {
       const doc = parser.parseFromString(htmlString, 'text/html');
       const scripts = doc.querySelectorAll('script');
       scripts.forEach(script => {
-        const newScript = document.createElement('script');
-        newScript.text = script.textContent;
-        document.head.appendChild(newScript).parentNode.removeChild(newScript);
+        if (script.src) {
+          const newScript = document.createElement('script');
+          newScript.src = script.src;
+          newScript.async = false; // Zorg ervoor dat scripts in volgorde worden geladen
+          document.head.appendChild(newScript);
+        } else {
+          const newScript = document.createElement('script');
+          newScript.text = script.textContent;
+          document.head.appendChild(newScript).parentNode.removeChild(newScript);
+        }
       });
     }
   },

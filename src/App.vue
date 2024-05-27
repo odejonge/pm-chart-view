@@ -1,14 +1,12 @@
 <template>
-  <div class="container-fluid custom-container">
-    <CNavBar @languageChanged="languageChanged" :languages="chartLayout.languages" />
-    <div class="container main ">
+  <div class="container-fluid custom-container p-0">
+    <div class="container main p-0">
       <router-view :chartLayout="chartLayout" />
     </div>
   </div>
 </template>
 
 <script>
-import CNavBar from './components/CNavBar.vue'
 import ServiceFactory from './services/ServiceFactory.js'
 
 export default {
@@ -23,9 +21,6 @@ export default {
       chartLayout: {},
       service: {},
     }
-  },
-  components: {
-    CNavBar
   },
   methods: {
     languageChanged(lang) {
@@ -54,16 +49,12 @@ export default {
 }
 </script>
 <style>
-body {
-  /* ivm met fixed-top navbar */
-  padding-top: 70px;
-}
 
 .custom-container {
   max-width: 900px;
   /* Of welke maximale breedte je ook verkiest */
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 0px;
+  margin-left: 0px;
   width: 100%;
 }
 </style>
