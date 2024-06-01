@@ -1,3 +1,5 @@
+/* /dist/chart custom.css */
+
 :root {
   --primary: #0F6C65;
   --secondary: #C7D66A;
@@ -102,3 +104,5 @@ h5 {
     max-width: 1240px;
   }
 }
+
+/* hello from pm-chart-view/public/custom.css */
