@@ -10,8 +10,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.8",
     "axios": "^1.6.8",
     "core-js": "^3.8.3",
+    "nouislider": "^15.8.1",
     "rimraf": "^5.0.5",
     "vue": "^3.2.13",
     "vue-router": "^4.3.0"

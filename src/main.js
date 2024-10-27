@@ -2,8 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import 'bootstrap';
 import * as VueRouter from 'vue-router';
-
+import 'nouislider/dist/nouislider.css'
 import HomePage from './pages/HomePage.vue'
+import MapPage from './pages/MapPage.vue'
+import MapPage2 from './pages/MapPage2.vue'
 
 import axios from 'axios';
 //Configureer Axios globaal. 
@@ -19,6 +21,14 @@ const router = VueRouter.createRouter({
     {
       path: '/',
       component: HomePage,
+    },
+    {
+      path: '/map',
+      component: MapPage,
+    },
+    {
+      path: '/map2',
+      component: MapPage2,
     }
   ]
 });

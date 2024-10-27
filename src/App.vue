@@ -1,8 +1,6 @@
 <template>
-  <div class="container-fluid custom-container p-0">
-    <div class="container main p-0">
-      <router-view :chartLayout="chartLayout" />
-    </div>
+  <div class="custom-container">
+    <router-view :chartLayout="chartLayout" />
   </div>
 </template>
 
@@ -12,7 +10,7 @@ import ServiceFactory from './services/ServiceFactory.js'
 export default {
   name: 'App',
   data() {
-    return {
+    return { 
       lang: 'nl',
       formStructure: {},
       selectedElement: null,
@@ -28,7 +26,9 @@ export default {
       this.getChartLayoutWithData()
     },
     async getChartLayoutWithData() {
-      this.chartLayout = await this.service.getChartLayoutWithData(this.chartId, this.lang)
+      if (this.$route.path !== '/map' && this.$route.path !== '/map2') {
+        this.chartLayout = await this.service.getChartLayoutWithData(this.chartId, this.lang)
+      }
     },
     rootUrl() {
       if (window.location.origin.indexOf('localhost') == -1) {
@@ -43,18 +43,26 @@ export default {
       this.chartId = this.$route.query.id;
       this.service = ServiceFactory.getChartViewService()
       this.getChartLayoutWithData()
-      //this.chartLayout = await this.service.getChartLayoutWithData(this.chartId, this.lang)
     }, 200)
-  }
+  },
 }
 </script>
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-.custom-container {
-  max-width: 900px;
-  /* Of welke maximale breedte je ook verkiest */
-  margin-right: 0px;
-  margin-left: 0px;
+body {
+  overflow-x: hidden;
   width: 100%;
+  height: 100%;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 </style>
