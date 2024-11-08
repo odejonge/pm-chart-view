@@ -20,22 +20,22 @@
         </div>
 
         <!-- Size -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label class="form-label">Size (ft²): {{ sizeRange[0] }} - {{ sizeRange[1] }}</label>
           <div ref="sizeSlider"></div>
-        </div>
+        </div> -->
 
         <!-- Bedrooms -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label class="form-label">Bedrooms: {{ bedRange[0] }} - {{ bedRange[1] }}</label>
           <div ref="bedSlider"></div>
-        </div>
+        </div> -->
 
         <!-- Bathrooms -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label class="form-label">Bathrooms: {{ bathRange[0] }} - {{ bathRange[1] }}</label>
           <div ref="bathSlider"></div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div id="map"></div>
@@ -44,7 +44,7 @@
 
 <script>
 import { Loader } from '@googlemaps/js-api-loader';
-import noUiSlider from 'nouislider';
+//import noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import ServiceFactory from '../services/ServiceFactory';
 export default {
@@ -180,38 +180,40 @@ export default {
     async initMap() {
       const loader = new Loader({
         apiKey: "AIzaSyDEsgErswj7mloq5AP83ih0iD8npbjTn-U",
-        version: "weekly",
+        version: "weekly"
       });
 
       const { Map } = await loader.importLibrary("maps");
-      const { AdvancedMarkerElement } = await loader.importLibrary("marker");
+      //const { AdvancedMarkerElement } = await loader.importLibrary("marker");
 
       const center = { lat: 37.43238031167444, lng: -122.16795397128632 };
       this.map = new Map(document.getElementById("map"), {
         zoom: 11,
+        visible: true,
         center,
         mapId: "4504f8b37365c3d1",
       });
+      console.log('Map created:', this.map);
 
       // Maak markers voor alle properties
-      this.markers = this.properties.map(property => {
-        const advancedMarker = new AdvancedMarkerElement({
-          map: this.map,
-          content: this.buildContent(property),
-          position: property.position,
-          title: property.description,
-        });
+      // this.markers = this.properties.map(property => {
+      //   const advancedMarker = new AdvancedMarkerElement({
+      //     map: this.map,
+      //     content: this.buildContent(property),
+      //     position: property.position,
+      //     title: property.description,
+      //   });
 
-        advancedMarker.property = property; // Bewaar property reference
+      //   advancedMarker.property = property; // Bewaar property reference
         
-        advancedMarker.addListener("click", () => {
-          this.toggleHighlight(advancedMarker);
-        });
+      //   advancedMarker.addListener("click", () => {
+      //     this.toggleHighlight(advancedMarker);
+      //   });
 
-        return advancedMarker;
-      });
+      //   return advancedMarker;
+      // });
 
-      this.updateMarkers(); // Update initiële zichtbaarheid
+      //this.updateMarkers(); // Update initiële zichtbaarheid
     },
     updateMarkers() {
       this.markers.forEach(marker => {
@@ -265,6 +267,7 @@ export default {
           from: (value) => value
         }
       });
+      console.log('Size slider created', sizeSlider);
 
       // Bed slider
       const bedSlider = this.$refs.bedSlider;
@@ -333,7 +336,7 @@ export default {
 
 #map {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 @import 'https://use.fontawesome.com/releases/v6.2.0/css/all.css';

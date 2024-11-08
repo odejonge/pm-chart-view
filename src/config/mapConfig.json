@@ -1,0 +1,59 @@
+{
+  "center": {
+    "lat": 37.43238031167444,
+    "lng": -122.16795397128632
+  },
+  "zoom": 11,
+  "markerStyles": [
+    {
+      "type": "home",
+      "icon": "fa-home",
+      "color": "#0288D1"
+    },
+    {
+      "type": "building",
+      "icon": "fa-building",
+      "color": "#FF9800"
+    }
+  ],
+  "filters": [
+    {
+      "type": "checkbox",
+      "label": "Property Type",
+      "field": "type",
+      "options": [
+        {
+          "value": "home",
+          "label": "Houses",
+          "icon": "fa-home"
+        },
+        {
+          "value": "building",
+          "label": "Buildings",
+          "icon": "fa-building"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "label": "Size",
+      "field": "size",
+      "range": {
+        "min": 0,
+        "max": 1000,
+        "step": 10,
+        "unit": "ft²"
+      }
+    },
+    {
+      "type": "range",
+      "label": "Bedrooms",
+      "field": "bed",
+      "range": {
+        "min": 0,
+        "max": 10,
+        "step": 1
+      }
+    }
+  ]
+}

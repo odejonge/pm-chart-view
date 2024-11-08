@@ -11,6 +11,7 @@ import axios from 'axios';
 //Configureer Axios globaal. 
 //Hiermee is toegestaan Cross Domain Cookies te versturen.
 axios.defaults.withCredentials = true;
+
 const router = VueRouter.createRouter({
   history: VueRouter.createWebHistory(process.env.BASE_URL),
   routes: [
@@ -24,6 +25,7 @@ const router = VueRouter.createRouter({
     },
     {
       path: '/map',
+      name: 'MapPage',
       component: MapPage,
     },
     {
@@ -31,6 +33,12 @@ const router = VueRouter.createRouter({
       component: MapPage2,
     }
   ]
+});
+
+// Debug
+router.beforeEach((to, from, next) => {
+  console.log('Navigating to:', to.path);
+  next();
 });
 
 createApp(App)

@@ -7,7 +7,7 @@
 <script>
 import ServiceFactory from './services/ServiceFactory.js'
 
-export default {
+export default { 
   name: 'App',
   data() {
     return { 
@@ -46,7 +46,7 @@ export default {
     }, 200)
   },
 }
-</script>
+</script> 
 <style>
 * {
   margin: 0;

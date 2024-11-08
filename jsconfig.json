@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "types": [
+      "estree"
+    ],
     "target": "es5",
     "module": "esnext",
     "baseUrl": "./",
@@ -14,6 +17,6 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ],
   }
 }
