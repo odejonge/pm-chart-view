@@ -18,24 +18,6 @@
             <label class="form-check-label">{{ type }}</label>
           </div>
         </div>
-
-        <!-- Size -->
-        <!-- <div class="mb-3">
-          <label class="form-label">Size (ft²): {{ sizeRange[0] }} - {{ sizeRange[1] }}</label>
-          <div ref="sizeSlider"></div>
-        </div> -->
-
-        <!-- Bedrooms -->
-        <!-- <div class="mb-3">
-          <label class="form-label">Bedrooms: {{ bedRange[0] }} - {{ bedRange[1] }}</label>
-          <div ref="bedSlider"></div>
-        </div> -->
-
-        <!-- Bathrooms -->
-        <!-- <div class="mb-3">
-          <label class="form-label">Bathrooms: {{ bathRange[0] }} - {{ bathRange[1] }}</label>
-          <div ref="bathSlider"></div>
-        </div> -->
       </div>
     </div>
     <div id="map"></div>
